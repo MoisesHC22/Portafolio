@@ -1,6 +1,6 @@
 ﻿@model Portafolio.ViewModel.CuentaVM
 @{
-    ViewData["Title"] = "Login";
+    ViewData["Title"] = "login";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -8,7 +8,7 @@
 
 <div class="overlay"></div>
 
-<form asp-controller="Home" asp-action="Login" method="post">
+<form asp-controller="Login" asp-action="Login" method="post">
 
     <div class="">
 
@@ -19,14 +19,15 @@
 
         <div class="mb-4">
             <label class="form-label">Contraseña</label>
-            <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña"/>
+            <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
         </div>
 
         <div><a asp-action="CrearCuenta" asp-controller="Home">No tengo cuenta</a></div>
 
-         <button type="submit" id="button">Iniciar sesión</button>
+        <button type="submit" id="button">Iniciar sesión</button>
 
         <div><a asp-action="Home" asp-controller="Home">Volver a Home</a></div>
 
     </div>
-</form> 
+</form>
+

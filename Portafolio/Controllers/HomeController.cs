@@ -5,6 +5,7 @@ using Portafolio.Models;
 using Portafolio.Models.BD1;
 using Portafolio.ViewModel;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Http;
 
 namespace Portafolio.Controllers
 {
@@ -12,22 +13,52 @@ namespace Portafolio.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly PortafolioDBContext _dbContext;
-        public HomeController(ILogger<HomeController> logger, PortafolioDBContext dbContext)
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        public HomeController(ILogger<HomeController> logger, PortafolioDBContext dbContext, IHttpContextAccessor httpContextAccessor)
         {
 
             _logger = logger;
             _dbContext = dbContext;
+            _httpContextAccessor = httpContextAccessor;
         }
 
        public IActionResult Home()
         {
+
+            var usuario = _httpContextAccessor.HttpContext.Session.GetInt32("Usuario");
+
+            var Datos = _dbContext.Usuario.FirstOrDefault(u => u.ID_Usuario == usuario);
+
+            var FechaActual = DateTime.Today;
+
+            if (Datos != null)
+            {
+                var Especialidad = _dbContext.Especialidad.FirstOrDefault(s => s.ID_Especialidad == Datos.ID_Especialidad);
+
+                int edad = FechaActual.Year - Datos.FechaNacimiento.Year;
+
+                if (Datos.FechaNacimiento.Date > FechaActual.AddYears(-edad))
+                {
+                    edad--;
+                }
+
+                ViewBag.Edad = edad;
+                ViewBag.Especialidad = Especialidad.NombreEspecialidad;
+
+                return View(Datos);
+            }
+            else
+            {
+                
+            }
             return View();
         }
+
 
         public IActionResult CrearCuenta()
         {
             var esp = _dbContext.Especialidad.ToList();
-            ViewBag.Especialidad = esp;  
+            ViewBag.Especialidad = esp;
             return View();
         }
 
@@ -39,40 +70,36 @@ namespace Portafolio.Controllers
                 Stream image = Imagen.OpenReadStream();
                 string urlimagen = await SubirStorage(image, Imagen.FileName);
 
-                try 
+                try
                 {
                     Usuario u = new Usuario();
-                       u.Nombre = cuentaVM.Nombre;
-                       u.ApellidoMaterno = cuentaVM.ApellidoMaterno;
-                       u.ApellidoPaterno = cuentaVM.ApellidoPaterno;
-                       u.FechaNacimiento = cuentaVM.FechaNacimiento;
-                       u.Telefono = cuentaVM.Telefono;
-                       u.ImgUsuario = urlimagen;
-                       u.ID_Especialidad = cuentaVM.ID_Especialidad;
+                    u.Nombre = cuentaVM.Nombre;
+                    u.ApellidoMaterno = cuentaVM.ApellidoMaterno;
+                    u.ApellidoPaterno = cuentaVM.ApellidoPaterno;
+                    u.FechaNacimiento = cuentaVM.FechaNacimiento;
+                    u.Telefono = cuentaVM.Telefono;
+                    u.ImgUsuario = urlimagen;
+                    u.ID_Especialidad = cuentaVM.ID_Especialidad;
 
                     _dbContext.Add(u);
                     await _dbContext.SaveChangesAsync();
 
                     Cuenta c = new Cuenta();
-                       c.Correo = cuentaVM.Correo;
-                       c.Contrasena = cuentaVM.Contrasena;
-                       c.ID_Usuario = u.ID_Usuario;
+                    c.Correo = cuentaVM.Correo;
+                    c.Contrasena = cuentaVM.Contrasena;
+                    c.ID_Usuario = u.ID_Usuario;
                     _dbContext.Add(c);
                     await _dbContext.SaveChangesAsync();
 
                     return RedirectToAction("Home");
 
-                }catch (Exception ex) 
+                }
+                catch (Exception ex)
                 {
 
                     ViewBag.Error(ex.Message);
-                } 
+                }
             }
-            return View();
-        }
-
-        public IActionResult Login() 
-        {
             return View();
         }
 

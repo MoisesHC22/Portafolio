@@ -1,7 +1,21 @@
-﻿
+﻿@model Portafolio.Models.BD1.Usuario
 @{
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Bienvenido</h1>
+@if (Model != null)
+{
+    <h1>Bienvenido, @Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h1>
+    <p>Teléfono: @Model.Telefono</p>
+    <p>Edad: @ViewBag.Edad años</p>
+    <p>Especialidad en @ViewBag.Especialidad</p>
+    <img src="@Model.ImgUsuario" alt="Iamgen de perfil" />
+
+    
+}
+else
+{
+    <p>Bienvenido</p> 
+}
+

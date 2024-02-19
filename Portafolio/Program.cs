@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Portafolio.Models;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -11,6 +13,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<PortafolioDBContext>(opciones =>
 opciones.UseSqlServer("name=DefaultConnection"));
 
+
+builder.Services.AddSession();
+builder.Services.AddHttpContextAccessor();
 
 var app = builder.Build();
 
@@ -28,6 +33,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+// Agregar middleware de sesión
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
