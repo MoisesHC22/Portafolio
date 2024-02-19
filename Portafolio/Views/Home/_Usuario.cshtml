@@ -1,0 +1,57 @@
+﻿@model Portafolio.ViewModel.CuentaVM
+
+<form asp-controller="Home" asp-action="CrearCuenta" method="post" enctype="multipart/form-data">
+    <div>
+
+        <div class="mb-3">
+            <label class="form-labe">Correo</label>
+            <input type="text" class="form-control" asp-for="Correo" placeholder="Ingresa tu correo" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Contraseña</label>
+            <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
+        </div>
+
+
+
+
+        <div class="mb-3">
+            <label class="form-labe">Nombre</label>
+            <input type="text" class="form-control" asp-for="Nombre" placeholder="Ingresa tu Nombre" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Apellido paterno</label>
+            <input type="text" class="form-control" asp-for="ApellidoPaterno" placeholder="Ingresa tu apellido paterno" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Apellido Materno</label>
+            <input type="text" class="form-control" asp-for="ApellidoMaterno" placeholder="Ingresa tu apellido Materno" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Fecha de nacimiento</label>
+            <input type="date" class="form-control" asp-for="FechaNacimiento" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Telefono</label>
+            <input type="text" class="form-control" asp-for="Telefono" placeholder="Ingresa tu numero telefonico" />
+        </div>
+
+        <select asp-for="ID_Especialidad" asp-items="@(new SelectList(ViewBag.Especialidad, 
+               "ID_Especialidad", "NombreEspecialidad"))" class="form-control">
+        </select>
+
+
+        <div class="mb-3">
+            <input type="file" class="form-control" name="Imagen" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </div>
+
+</form>
