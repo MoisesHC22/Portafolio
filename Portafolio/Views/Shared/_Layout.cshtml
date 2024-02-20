@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -18,35 +20,74 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Portafolio</a>
+        <nav id="ContenedorMenu" class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white mb-3">
+            
+            <div class="container-fluid"  id="FondoMenu">
+                <a class="navbar-brand text-white" id="tituloPagina" asp-area="" asp-controller="Home" asp-action="Index">MiPortafolio.com</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between" >
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-
-
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">Cuenta</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="Home" asp-action="Home">Home</a>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="CerrarSesion">Cerrar sesion</a>
+                            <a class="nav-link text-white" asp-area="" asp-controller="" asp-action="">Lista de Proyectos</a>
                         </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link text-white" asp-area="" asp-controller="Contacto" asp-action="Contacto">Contactame</a>
+                        </li>
+
                     </ul>
+
+                    <div class="dropdown text-end">
+
+                        <div class="unirComp">
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Login">
+
+                            @if (!string.IsNullOrEmpty(ViewBag.ImgPerfil))
+                            {
+                                <img src="@ViewBag.ImgPerfil" alt="Perfil" id="ImgPerfil" />
+                            }
+                            else
+                            {
+                                <img src="/img/Perfil.png" alt="Perfil" id="ImgPerfil" />
+                            }
+                        </a>
+
+                          @if (!string.IsNullOrEmpty(ViewBag.ImgPerfil))
+                            {
+                                <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle fs-4 text-white"
+                                data-bs-toggle="dropdown" aria-expanded="false" id="IconoDesplegar">
+                                </a>
+
+                                <ul class="dropdown-menu text-small" id="Opciones">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Perfil" asp-action="ListaDeProyectos">Mis proyectos</a>
+                                    </li>
+
+                                    <li>
+                                        <a class="nav-link text-white" asp-area="" asp-controller="Login" asp-action="CerrarSesion">Cerrar sesion</a>
+                                    </li>
+
+                                </ul>
+                            }
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()

@@ -1,13 +1,17 @@
 using Microsoft.EntityFrameworkCore;
+using Portafolio.Infraestructura;
 using Portafolio.Models;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+using Portafolio.Servicios;
 
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//Inyeccion de dependecia para enviar correos
+builder.Services.AddTransient<IServiceEmailSendGrid, ServiceEmailSendGrid>();
+
 
 //Inyeccion de Conexion de BD
 builder.Services.AddDbContext<PortafolioDBContext>(opciones =>

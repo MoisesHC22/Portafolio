@@ -6,27 +6,29 @@
 
 <h1>iniciar sesion</h1>
 
-<div class="overlay"></div>
-
 <form asp-controller="Home" asp-action="Login" method="post">
 
-    <div class="">
 
-        <div class="mb-4">
+
+    <div class="ContenedorLogin">
+        <div class="Login">
+        
+            <h2 class="form-title" id="TituloLogin">Iniciar sesión</h2>
+            
+            <div class="">
             <label class="form-label">Correo:</label>
             <input type="text" class="form-control" asp-for="Correo" placeholder="Ingresa tu contraseña" />
-        </div>
-
-        <div class="mb-4">
+      
             <label class="form-label">Contraseña</label>
             <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña"/>
+        
+             <div><a asp-action="CrearCuenta" asp-controller="Home">No tengo cuenta</a></div>
+            </div>
+
+            <button type="submit" id="button">Iniciar sesión</button>
+
         </div>
-
-        <div><a asp-action="CrearCuenta" asp-controller="Home">No tengo cuenta</a></div>
-
-         <button type="submit" id="button">Iniciar sesión</button>
-
-        <div><a asp-action="Home" asp-controller="Home">Volver a Home</a></div>
-
     </div>
 </form> 
+
+<div><a asp-action="Home" asp-controller="Home">Volver a Home</a></div> 

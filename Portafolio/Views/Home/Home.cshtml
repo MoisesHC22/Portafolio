@@ -3,16 +3,42 @@
     ViewData["Title"] = "Home";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<link rel="stylesheet" href="~/css/Home.css" asp-append-version="true" />
 
 @if (Model != null)
 {
-    <h1>Bienvenido, @Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h1>
-    <p>Teléfono: @Model.Telefono</p>
-    <p>Edad: @ViewBag.Edad años</p>
-    <p>Especialidad en @ViewBag.Especialidad</p>
-    <img src="@Model.ImgUsuario" alt="Iamgen de perfil" />
 
-    
+    <div class="container unir">
+        <div class="Componente1">
+            <img src="@Model.ImgUsuario" alt="Iamgen de perfil" id="ImgUsuario" />
+        </div>
+        <div class="Componente2">
+
+            <h2>@Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h2>
+            <h5>Especialidad en @ViewBag.Especialidad</h5>
+            <p>Edad: @ViewBag.Edad años. Teléfono: @Model.Telefono.</p>
+
+        </div>
+
+
+
+    </div>
+
+
+    if (ViewBag.titulo != null && ViewBag.Descripcion != null)
+    {
+        <div class="row justify-content-center text-center bg-black">
+            <div class="col col-md-7 seccion-bienvenida">
+                <h3>@ViewBag.titulo</h3>
+                 <p>@ViewBag.Descripcion</p>
+            </div>
+        </div>
+     
+    }
+    else
+    {
+        <a asp-action="InformacionHome" asp-controller="Perfil">Agregar informacion a Home</a>
+    }
 }
 else
 {

@@ -1,0 +1,36 @@
+﻿
+#ImgUsuario {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+}
+
+.unir {
+    margin-top: 15px;
+    display: flex;
+}
+
+.Componente1 {
+    margin: 10px;
+}
+
+.Componente2 {
+    margin-top: 40px;
+    text-align: center;
+
+}
+
+.seccion-bienvenida {
+    margin: 5rem 0 5rem 0;
+    color: white;
+}
+
+    .seccion-bienvenida h1 {
+        margin-bottom: 1rem;
+    }
+
+    .seccion-bienvenida p {
+        font-family: sans-serif;
+        line-height: 1.5;
+        font-size: 1.25rem;
+    }

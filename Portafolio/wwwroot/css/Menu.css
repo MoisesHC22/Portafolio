@@ -1,2 +1,48 @@
-﻿body {
+﻿
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.justificartxt {
+    text-align: justify;
 }
+
+#ContenedorMenu {
+    margin-top: -20px;
+}
+
+#tituloPagina {
+    font-family: "Pacifico", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+#FondoMenu {
+    background-color: #348c84;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.unirComp {
+    display: flex; 
+}
+
+
+#ImgPerfil {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+#IconoDesplegar {
+    margin: 6px 0px 0px -10px;
+}
+
+#Opciones {
+    margin-left: -70px;
+    background-color: #34606c;
+}
+
+    #Opciones li:hover {
+        background-color: black;
+    }
+

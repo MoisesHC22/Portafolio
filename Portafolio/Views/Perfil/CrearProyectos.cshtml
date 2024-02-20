@@ -1,0 +1,39 @@
+﻿@model Portafolio.ViewModel.ProyectosVM
+@{
+    ViewData["Title"] = "Crear proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Crear proyectos</h1>
+
+<form asp-controller="Perfil" asp-action="CrearProyectos" method="post" enctype="multipart/form-data">
+    <div>
+
+
+        <div class="mb-3">
+            <label class="form-labe">Titulo de proyecto</label>
+            <input type="text" class="form-control" asp-for="TituloProy" placeholder="Ingresa el titulo de proyecto" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Titulo descripcion del proyecto</label>
+            <input type="text" class="form-control" asp-for="DescripcionProy" placeholder="Ingresa la descripcion del proyecto" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Link del proyecto</label>
+            <input type="text" class="form-control" asp-for="LinkProy" placeholder="Ingresa la URL del proyecto" />
+        </div>
+
+        <select asp-for="ID_Lenguaje" asp-items="@(new SelectList(ViewBag.Lenguaje,
+               "ID_Lenguaje", "NombreLenguaje"))" class="form-control">
+        </select>
+
+        <div class="mb-3">
+            <input type="file" class="form-control" name="ImgProyecto" />
+        </div>
+
+        <button type="submit" id="button">Crear</button>
+
+    </div>
+</form>

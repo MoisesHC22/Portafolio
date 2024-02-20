@@ -5,7 +5,6 @@ using Portafolio.Models;
 using Portafolio.Models.BD1;
 using Portafolio.ViewModel;
 using System.Diagnostics;
-using Microsoft.AspNetCore.Http;
 
 namespace Portafolio.Controllers
 {
@@ -22,7 +21,7 @@ namespace Portafolio.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-       public IActionResult Home()
+        public IActionResult Home()
         {
 
             var usuario = _httpContextAccessor.HttpContext.Session.GetInt32("Usuario");
@@ -41,15 +40,25 @@ namespace Portafolio.Controllers
                 {
                     edad--;
                 }
+                ViewBag.ImgPerfil = Datos.ImgUsuario;
+                HttpContext.Session.SetString("imgP", Datos.ImgUsuario);
 
                 ViewBag.Edad = edad;
                 ViewBag.Especialidad = Especialidad.NombreEspecialidad;
+
+                var InfHome = _dbContext.InfHome.FirstOrDefault(i => i.ID_Usuario == Datos.ID_Usuario);
+
+                if (InfHome != null)
+                {
+                    ViewBag.titulo = InfHome.TituloDeBienvenida;
+                    ViewBag.Descripcion = InfHome.DescripcionHome;
+                }
 
                 return View(Datos);
             }
             else
             {
-                
+
             }
             return View();
         }

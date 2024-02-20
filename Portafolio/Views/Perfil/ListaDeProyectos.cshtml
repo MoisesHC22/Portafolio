@@ -1,0 +1,67 @@
+﻿@model List<Portafolio.ViewModel.ProyectosVM>
+
+@{
+    ViewData["Title"] = "Mis proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/StListaDeProyectos.css" asp-append-version="true" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
+
+<h1 id="TituloDeProyectos">Mis proyectos</h1>
+
+<div class="contenedorTodosProductos">
+@if (Model != null && Model.Any())
+{
+        <a asp-action="CrearProyectos" asp-controller="Perfil" id="BtnParaCrearProyecto">
+            <div class="contendorParaCrear">
+                <h4>Agregar nuevo proyecto</h4>
+                <div id="animacion"></div>
+            </div>
+        </a>
+
+    foreach (var p in Model)
+    {
+
+        <div class="contenedor">
+           <div class="CuadroDeContenidoProy">
+               <h4 class="TituloProyecto">@p.TituloProy</h4>
+               <h6 class="centrartxt">Desarrollado en @p.NombreLenguaje </h6>
+               <p class="justificartxt">@p.DescripcionProy</p>
+
+               <img src="@p.ImgProy" alt="Imagen del perfil" id="ImagenProyecto"/>
+              
+               <div id="botonProyecto">
+                    <a href="@p.LinkProy" id="verPro">Ver</a>
+                </div>
+
+           </div>
+        </div>
+    }
+
+    }
+else
+    {
+
+         <a asp-action="CrearProyectos" asp-controller="Perfil" id="BtnParaCrearProyecto">
+                   <div class="contendorParaCrear">
+                       <h4>Agregar nuevo proyecto</h4>
+                       <div id="animacion"></div>
+                   </div> 
+         </a>
+
+    }
+
+</div>
+
+<script>
+    lottie.loadAnimation({
+        container: document.getElementById('animacion'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/js/Animaciones/singing-contract.json'
+    });
+</script>
+
+

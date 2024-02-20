@@ -1,0 +1,83 @@
+﻿
+
+#TituloDeProyectos {
+    text-align: center;
+    margin: -20px 0px 20px 0px;
+
+
+}
+
+.contenedorTodosProductos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2px;
+}
+
+
+#ImagenProyecto {
+    width: 300px;
+    height: 200px;
+}
+
+#verPro {
+    color: white;
+    text-decoration: none;
+    background-color: #3cb39b;
+    padding: 5px 100px;
+    border-radius: 5px;
+    margin-left: 28px;
+}
+
+    #verPro:hover {
+        background-color: #243b53;
+    }
+
+#botonProyecto {
+    margin:10px;
+}
+
+.contenedor {
+    margin-top: 20px;
+    background-color: #F7F7F7;
+    width: 320px;
+    height: 380px;
+    border-radius: 10px;
+}
+
+.CuadroDeContenidoProy {
+    margin: 10px;
+}
+
+.TituloProyecto {
+    text-align: center;
+}
+
+
+
+
+#BtnParaCrearProyecto {
+    text-decoration: none;
+}
+
+.contendorParaCrear {
+    margin-top: 20px;
+    background-color: #737373;
+    color: white;
+    width: 320px;
+    height: 380px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+    .contendorParaCrear:hover {
+        background-color: black;
+    }
+
+#animacion {
+    width: 200px;
+    height: 200px;
+    margin-top: 20px;
+}

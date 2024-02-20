@@ -17,8 +17,7 @@ namespace Portafolio.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-
-        public IActionResult login() 
+        public IActionResult login()
         {
             return View();
         }
@@ -62,6 +61,7 @@ namespace Portafolio.Controllers
         public IActionResult CerrarSesion()
         {
             HttpContext.Session.Remove("Usuario");
+            HttpContext.Session.Remove("imgP");
 
             return RedirectToAction("Home", "Home");
         }

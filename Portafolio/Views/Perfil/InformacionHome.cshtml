@@ -1,0 +1,28 @@
+﻿@model Portafolio.ViewModel.InfHomeVM
+
+@{
+    ViewData["Title"] = "Información para Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Agregar información a Home</h1>
+
+<form asp-controller="Perfil" asp-action="InformacionHome" method="post">
+
+    <div>
+
+        <div class="mb-3">
+            <label class="form-labe">Titulo de bienvenida:</label>
+            <input type="text" class="form-control" asp-for="TituloDeBienvenida" placeholder="Ingresa un titulo" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-labe">Descripción de portafolio: </label>
+            <input type="text" class="form-control" asp-for="DescripcionHome" placeholder="Ingresa la descripción" />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Guardar</button>
+
+    </div>
+
+</form>
