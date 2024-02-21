@@ -3,36 +3,39 @@
     ViewData["Title"] = "Contacto";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
+<link rel="stylesheet" href="/css/Contacto.css" asp-append-version="true" />
+
+<div class="centrarCont">
 <form asp-controller="Contacto" asp-action="Contacto">
-    <div class="row">
-        <div class="col">
-            <div class="card shadow-lg p-3 mb-5 bg-body-tertiary rounded">
-                <div class="card-body">
-                    <h5 class="card-title">Formulario de contacto</h5>
-                    <h6 class="card-subtitle mb-2 text-primary">Escribe tus dudas o comentarios</h6>
-                    <div class="card-text">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-labe">Nombre</label>
-                            <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Ingresa tu nombre" />
+    <div class="ContenedorCont">
+        <div class="filtro">
+
+            <div class="Contacto">
+
+                    <h1 id="TituloContacto">Formulario de contacto</h1>
+                    <h6 id="Indicacion">Escribe tus dudas o comentarios</h6>
+                    
+                    <div class="centrarItems">
+                        
+                        <div class="unirItems">
+
+                           <input type="text" class="requisito1" id="nombre" name="nombre" placeholder="Ingresa tu nombre" />
+
+                           <input type="email" class="requisito2" id="email" name="email" placeholder="correo@ejemplo.com" />
                         </div>
 
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" name="email" placeholder="correo@ejemplo.com" />
+                        <div>
+                            <label for="mensaje" class="descripcion">Ingresa un mensaje:</label>
+                           <textarea class="requisito" id="mensaje" name="mensaje" rows="3"></textarea>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="mensaje" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="mensaje" name="mensaje" rows="3"></textarea>
-                        </div>
-
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+                        <button type="submit" id="button">Enviar</button>
                     </div>
-
-                </div>
-
             </div>
         </div>
     </div>
+
 </form>
+</div>
 

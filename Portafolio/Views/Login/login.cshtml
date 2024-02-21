@@ -4,30 +4,31 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>iniciar sesion</h1>
+
 
 <div class="overlay"></div>
+<link rel="stylesheet" href="/css/Login.css" asp-append-version="true"/>
 
+<div class="CentrarLogin">
 <form asp-controller="Login" asp-action="Login" method="post">
 
-    <div class="">
+    <div class="ContenedorLogin">
+        <div class="filtro">
+        <div class="Login">
 
-        <div class="mb-4">
-            <label class="form-label">Correo:</label>
-            <input type="text" class="form-control" asp-for="Correo" placeholder="Ingresa tu correo" />
-        </div>
+            <h1 id="TituloLogin">Login</h1>
+            <div class="centrarItems">
+            <input id="Requisito" type="text" class="form-control" asp-for="Correo" placeholder="Ingresa tu correo" />
 
-        <div class="mb-4">
-            <label class="form-label">Contraseña</label>
-            <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
-        </div>
+            <input id="Requisito" type="password" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
 
-        <div><a asp-action="CrearCuenta" asp-controller="Home">No tengo cuenta</a></div>
 
         <button type="submit" id="button">Iniciar sesión</button>
 
-        <div><a asp-action="Home" asp-controller="Home">Volver a Home</a></div>
-
+            <div><a asp-action="CrearCuenta" asp-controller="Home" id="NoTengoCuenta">No tengo cuenta</a></div>
+                </div>
+        </div>
+        </div>
     </div>
 </form>
-
+</div>

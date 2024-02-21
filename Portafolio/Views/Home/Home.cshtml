@@ -17,6 +17,10 @@
             <h2>@Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h2>
             <h5>Especialidad en @ViewBag.Especialidad</h5>
             <p>Edad: @ViewBag.Edad años. Teléfono: @Model.Telefono.</p>
+            
+            <br />
+            <h5>Experiencia en:</h5>
+            <img src="/img/Tecnologias.png" id="Tecnologias" />
 
         </div>
 
@@ -29,7 +33,7 @@
     {
         <div class="row justify-content-center text-center bg-black">
             <div class="col col-md-7 seccion-bienvenida">
-                <h3>@ViewBag.titulo</h3>
+                <h3 id="TituloInfoHome">@ViewBag.titulo</h3>
                  <p>@ViewBag.Descripcion</p>
             </div>
         </div>

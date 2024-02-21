@@ -58,10 +58,42 @@ namespace Portafolio.Controllers
             }
             else
             {
+                var cualquierRegistro = _dbContext.Usuario.FirstOrDefault();
 
+                if (cualquierRegistro != null)
+                {
+                    var EspecialidadDeUsuario = _dbContext.Especialidad.FirstOrDefault(es => es.ID_Especialidad == cualquierRegistro.ID_Especialidad);
+
+                    int EdadCualquierRegistro = FechaActual.Year - cualquierRegistro.FechaNacimiento.Year;
+
+                    if (cualquierRegistro.FechaNacimiento.Date > FechaActual.AddYears(-EdadCualquierRegistro))
+                    {
+                        EdadCualquierRegistro--;
+                    }
+
+                    ViewBag.Edad = EdadCualquierRegistro;
+                    ViewBag.Especialidad = EspecialidadDeUsuario != null ? EspecialidadDeUsuario.NombreEspecialidad : "Sin especialidad";
+
+                    var InfHCualquierU = _dbContext.InfHome.FirstOrDefault(inf => inf.ID_Usuario == cualquierRegistro.ID_Usuario);
+
+                    if (InfHCualquierU != null)
+                    {
+                        ViewBag.titulo = InfHCualquierU.TituloDeBienvenida;
+                        ViewBag.Descripcion = InfHCualquierU.DescripcionHome;
+                    }
+
+                    HttpContext.Session.SetInt32("CualquierUsuario", cualquierRegistro.ID_Usuario);
+
+                    return View(cualquierRegistro);
+
+                }
+                else 
+                {
+                    return NotFound();
+                }   
             }
-            return View();
         }
+
 
 
         public IActionResult CrearCuenta()

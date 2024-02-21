@@ -8,6 +8,8 @@
         public string? LinkProy { get; set; }
         public string? ImgProy { get; set; }
         public string? NombreLenguaje { get; set; }
+
+        public string? Autor { get; set; }
         public int? ID_Usuario { get; set; }
         public int? ID_Lenguaje { get; set; }
     }

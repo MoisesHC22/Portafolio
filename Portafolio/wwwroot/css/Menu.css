@@ -1,5 +1,7 @@
 ﻿
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
 
 .justificartxt {
     text-align: justify;
@@ -31,6 +33,7 @@
     width: 30px;
     height: 30px;
     border-radius: 50%;
+    object-fit: cover;
 }
 
 #IconoDesplegar {
@@ -46,3 +49,17 @@
         background-color: black;
     }
 
+.opcion {
+    margin: 0 5px;
+}
+
+.opcion:hover {
+    background-color: black;
+    width: auto;
+    height: auto;
+    border-radius: 10px;
+}
+
+#OpcionesPrincipales {
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+}

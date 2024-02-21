@@ -1,0 +1,41 @@
+﻿@model List<Portafolio.ViewModel.ProyectosVM>
+@{
+    ViewData["Title"] = "Proyectos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link rel="stylesheet" href="~/css/StListaDeProyectos.css" asp-append-version="true" />
+
+<h1 id="TituloDeProyectos">Proyectos</h1>
+
+<div class="contenedorTodosProductos">
+    @if (Model != null && Model.Any())
+    {
+
+        foreach (var p in Model)
+        {
+
+            <div class="contenedor">
+                <div class="CuadroDeContenidoProy">
+                    <h4 class="TituloProyecto">@p.TituloProy</h4>
+                    <h6 class="centrartxt">Desarrollado en @p.NombreLenguaje </h6>
+                    <p class="justificartxt">@p.DescripcionProy</p>
+
+                    <img src="@p.ImgProy" alt="Imagen del perfil" id="ImagenProyecto" />
+
+                    <div id="botonProyecto">
+                        <a href="@p.LinkProy" id="verPro">Ver</a>
+                    </div>
+
+                </div>
+            </div>
+        }
+
+    }
+    else
+    {
+        <p>Este usuario no tiene proyectos</p>
+    }
+
+</div>
+

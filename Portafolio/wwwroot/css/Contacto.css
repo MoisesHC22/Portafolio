@@ -2,17 +2,17 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 
 
-.CentrarLogin {
+.centrarCont {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.ContenedorLogin {
-    background-image: url(../img/Login.jpg);
-    width: 500px;
-    height: 500px;
+.ContenedorCont {
+    background-image: url(../img/Contactame.jpg);
+    width: 800px;
+    height: 430px;
     border-radius: 20px;
     background-size: cover;
     background-position: center;
@@ -22,10 +22,11 @@
 .filtro {
     position: absolute;
     background-color: rgba(0, 0, 0, 0.5);
-    width: 500px;
-    height: 500px;
+    width: 800px;
+    height: 430px;
     border-radius: 20px;
 }
+
 
 .centrarItems {
     display: flex;
@@ -35,15 +36,20 @@
 }
 
 
-#TituloLogin {
-    font-size: 50px;
+#TituloContacto {
+    font-size: 30px;
     text-align: center;
     color: white;
     font-family: "Fira Sans", Helvetica, Arial, sans-serif;
 }
 
-.Login {
+#Indicacion {
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
 
+.Contacto {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -52,22 +58,41 @@
     z-index: 5;
 }
 
-#Requisito {
+.unirItems {
+    display: flex;
+}
+
+.requisito {
     border-radius: 5px;
     border: none;
-    padding: 15px 45px;
+    padding: 10px 200px;
     margin: 10px;
 }
 
 
-#TituloLogin {
-    justify-content: center;
-    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+.requisito1 {
+    border-radius: 5px;
+    border: none;
+    padding: 10px 15px;
+    margin: 10px;
+}
+
+.requisito2 {
+    border-radius: 5px;
+    border: none;
+    padding: 10px 73px;
+    margin: 10px;
+}
+
+.descripcion {
+    color: white;
+    text-align: justify;
+    margin-left: 8px;
 }
 
 #button {
-    background-color: rgba(0,0,0,0.2);
-    color: rgba(256,256,256,0.7);
+    background-color: white;
+    color: black;
     border: 0;
     border-radius: 15px;
     display: block;
@@ -85,15 +110,4 @@
     #button:hover {
         background-color: black;
         color: white;
-    }
-
-#NoTengoCuenta {
-    text-decoration: none;
-    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
-    color: white;
-    font-size: 15px;
-}
-
-    #NoTengoCuenta:hover {
-        color: #3cb39b;
     }

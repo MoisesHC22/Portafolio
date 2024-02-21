@@ -36,6 +36,7 @@ namespace Portafolio.Controllers
                     if (usuario != null)
                     {
                         HttpContext.Session.SetInt32("Usuario", usuario.ID_Usuario);
+                        HttpContext.Session.Remove("CualquierUsuario");
                     }
                     else
                     {

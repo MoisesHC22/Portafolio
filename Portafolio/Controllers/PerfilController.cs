@@ -89,7 +89,6 @@ namespace Portafolio.Controllers
             return View(proyectos);
         }
 
-
         public IActionResult CrearProyectos()
         {
             var img = _httpContextAccessor.HttpContext.Session.GetString("imgP");
@@ -103,6 +102,7 @@ namespace Portafolio.Controllers
             ViewBag.Lenguaje = len;
             return View();
         }
+
 
         [HttpPost]
         public async Task<IActionResult> CrearProyectos(ProyectosVM proyectosVM, IFormFile ImgProyecto)

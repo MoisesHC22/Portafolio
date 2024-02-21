@@ -23,7 +23,7 @@ namespace Portafolio.Controllers
         public async Task<IActionResult> Contacto(ContactoVM contactoVM)
         {
             await _emailSendGrid.Enviar(contactoVM);
-            return View();
+            return RedirectToAction("Home", "Home");
         }
     }
 }
