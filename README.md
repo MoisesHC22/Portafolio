@@ -19,11 +19,11 @@ FirebaseStorage.net | 1.0.3
 Microsoft.EntityFrameworkCore.SqlServer | 7.0.11
 SendGrid | 9.19.2
 
-##Diagrama de base de datos usada
+## Diagrama de base de datos usada
 [![Diagrama-De-Base-De-Datos-De-Portafolio.png](https://i.postimg.cc/PJzhgJSJ/Diagrama-De-Base-De-Datos-De-Portafolio.png)](https://postimg.cc/p5Tg8WbM)
 
 
 
-##Importante
+## Importante
 
 Este proyecto a un sigue en proceso...
