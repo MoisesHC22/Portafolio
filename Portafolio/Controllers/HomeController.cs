@@ -13,18 +13,23 @@ namespace Portafolio.Controllers
         private readonly ILogger<HomeController> _logger;
         private readonly PortafolioDBContext _dbContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
-        public HomeController(ILogger<HomeController> logger, PortafolioDBContext dbContext, IHttpContextAccessor httpContextAccessor)
+        private readonly IConfiguration _configuration;
+
+        public HomeController(ILogger<HomeController> logger, PortafolioDBContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
 
             _logger = logger;
             _dbContext = dbContext;
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
         }
 
         public IActionResult Home()
         {
 
             var usuario = _httpContextAccessor.HttpContext.Session.GetInt32("Usuario");
+
+
 
             var Datos = _dbContext.Usuario.FirstOrDefault(u => u.ID_Usuario == usuario);
 
@@ -54,11 +59,21 @@ namespace Portafolio.Controllers
                     ViewBag.Descripcion = InfHome.DescripcionHome;
                 }
 
+                var Proyecto = _dbContext.Proyectos.Where(p => p.ID_Usuario == Datos.ID_Usuario)
+                         .OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+
+                if (Proyecto != null)
+                {
+                    ViewBag.ImgPro = Proyecto.ImgProy;
+                    ViewBag.TituloPro = Proyecto.TituloProy;
+                    ViewBag.DescPro = Proyecto.DescripcionProy;
+                }
+
                 return View(Datos);
             }
             else
             {
-                var cualquierRegistro = _dbContext.Usuario.FirstOrDefault();
+                var cualquierRegistro = _dbContext.Usuario.OrderBy(c => Guid.NewGuid()).FirstOrDefault();
 
                 if (cualquierRegistro != null)
                 {
@@ -82,7 +97,19 @@ namespace Portafolio.Controllers
                         ViewBag.Descripcion = InfHCualquierU.DescripcionHome;
                     }
 
+                    var Proyecto = _dbContext.Proyectos.Where(p => p.ID_Usuario == cualquierRegistro.ID_Usuario)
+                        .OrderBy(p => Guid.NewGuid()).FirstOrDefault();
+
+                    if (Proyecto != null)
+                    {
+                        ViewBag.ImgPro = Proyecto.ImgProy;
+                        ViewBag.TituloPro = Proyecto.TituloProy;
+                        ViewBag.DescPro = Proyecto.DescripcionProy;
+                    }
+
+
                     HttpContext.Session.SetInt32("CualquierUsuario", cualquierRegistro.ID_Usuario);
+
 
                     return View(cualquierRegistro);
 
@@ -148,10 +175,10 @@ namespace Portafolio.Controllers
 
         public async Task<string> SubirStorage(Stream archivo, string nombre)
         {
-            string email = "";
-            string clave = "";
-            string ruta = "";
-            string api_key = "";
+            string email = _configuration.GetValue<string>("STORAGE_EMAIL");
+            string clave = _configuration.GetValue<string>("STORAGE_CLAVE");
+            string ruta = _configuration.GetValue<string>("STORAGE_RUTA");
+            string api_key = _configuration.GetValue<string>("STORAGE_APIKEY");
 
             var auth = new FirebaseAuthProvider(new FirebaseConfig(api_key));
             var a = await auth.SignInWithEmailAndPasswordAsync(email, clave);

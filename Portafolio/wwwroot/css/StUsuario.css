@@ -1,0 +1,131 @@
+﻿.CentrarUsuario {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ContenedorCuenta {
+    background-image: url(../img/Usuario.jpg);
+    width: 700px;
+    height: 600px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.filtro {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 700px;
+    height: 600px;
+    border-radius: 20px;
+}
+
+.Cuenta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+}
+
+
+#TituloCuenta {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    margin-bottom: 25px;
+}
+
+.unir {
+    display: flex;
+}
+
+.centrarItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Campo {
+    margin:10px;
+}
+
+
+.Descripcion {
+    color: white;
+    margin-bottom: 5px;
+}
+
+#CampoCentrados {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.Requisito {
+    border-radius: 5px;
+    border: none;
+}
+
+    .Requisito::placeholder {
+        text-align: center;
+        font-size: 14px;
+    }
+
+.RequisitoGenerico {
+    padding: 10px 10px;
+}
+
+.RequisitoCorreo {
+    padding: 10px 70px;
+}
+
+.RequisitoFecha {
+    padding: 10px 50px;
+}
+
+.RequisitoNombre {
+    padding: 10px 70px;
+}
+
+.RequisitoApellido {
+    padding: 10px 50px;
+}
+
+.RequisitoEspecialidad {
+    padding: 10px 0px;
+}
+
+
+
+
+
+#button {
+    background-color: rgba(0,0,0,0.2);
+    color: rgba(256,256,256,0.7);
+    border: 0;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all .3s ease;
+}
+
+    #button:hover {
+        background-color: black;
+        color: white;
+    }

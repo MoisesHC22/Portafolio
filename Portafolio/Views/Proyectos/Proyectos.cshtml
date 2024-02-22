@@ -6,7 +6,7 @@
 
 <link rel="stylesheet" href="~/css/StListaDeProyectos.css" asp-append-version="true" />
 
-<h1 id="TituloDeProyectos">Proyectos</h1>
+<h1 id="TituloDeProyectos">Proyectos <i class="fa-solid fa-list-check" id="IconoLista"></i></h1>
 
 <div class="contenedorTodosProductos">
     @if (Model != null && Model.Any())
@@ -17,14 +17,14 @@
 
             <div class="contenedor">
                 <div class="CuadroDeContenidoProy">
-                    <h4 class="TituloProyecto">@p.TituloProy</h4>
-                    <h6 class="centrartxt">Desarrollado en @p.NombreLenguaje </h6>
-                    <p class="justificartxt">@p.DescripcionProy</p>
+                    <h4 class="TituloProyecto TitleProy">@p.TituloProy</h4>
+                    <h6 class="centrartxt NomLenguaje">Desarrollado en @p.NombreLenguaje </h6>
+                    <p class="justificartxt DescProy">@p.DescripcionProy</p>
 
                     <img src="@p.ImgProy" alt="Imagen del perfil" id="ImagenProyecto" />
 
                     <div id="botonProyecto">
-                        <a href="@p.LinkProy" id="verPro">Ver</a>
+                        <a href="@p.LinkProy" id="verPro" target="_blank">Ver</a>
                     </div>
 
                 </div>
@@ -34,8 +34,22 @@
     }
     else
     {
-        <p>Este usuario no tiene proyectos</p>
+        <div class="CentrarAnuncio">
+             <h5 id="TituloAnunicioNoProy">Este usuario no tiene proyectos...</h5>
+             <div id="animacion"></div>
+        </div>
     }
 
 </div>
 
+<script>
+    lottie.loadAnimation({
+        container: document.getElementById('animacion'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/js/Animaciones/Espacio.json'
+    });
+
+
+</script>

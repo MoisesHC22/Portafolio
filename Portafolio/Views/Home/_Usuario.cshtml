@@ -1,57 +1,89 @@
 ﻿@model Portafolio.ViewModel.CuentaVM
 
+<link rel="stylesheet" href="/css/StUsuario.css" asp-append-version="true" />
+
+
+<div class="CentrarUsuario">
 <form asp-controller="Home" asp-action="CrearCuenta" method="post" enctype="multipart/form-data">
-    <div>
 
-        <div class="mb-3">
-            <label class="form-labe">Correo</label>
-            <input type="text" class="form-control" asp-for="Correo" placeholder="Ingresa tu correo" />
+        <div class="ContenedorCuenta">
+
+            <div class="filtro">
+                <div class="Cuenta">
+
+                    <h1 id="TituloCuenta">Crear cuenta</h1>
+
+                    <div class="centrarItems">
+
+
+   <div class="unir">
+       <div id="Campo">
+            <label class ="Descripcion">Correo:</label>
+            <input type="text" class="Requisito RequisitoCorreo" asp-for="Correo" placeholder="Ingresa tu correo" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-labe">Contraseña</label>
-            <input type="text" class="form-control" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
+        <div id="Campo">
+            <label class ="Descripcion">Contraseña:</label>
+            <input type="text" class="Requisito RequisitoGenerico" asp-for="Contrasena" placeholder="Ingresa tu contraseña" />
+        </div>
+    </div>
+
+
+
+    <div class="unir">
+         <div id="Campo">
+            <label class ="Descripcion">Fecha de nacimiento:</label>
+            <input type="date" class="Requisito RequisitoFecha" asp-for="FechaNacimiento" />
+        </div>
+        
+        <div id="Campo">
+            <label class ="Descripcion">Nombre:</label>
+            <input type="text" class="Requisito RequisitoNombre" asp-for="Nombre" placeholder="Ingresa tu Nombre" />
+        </div>
+    </div>
+
+     
+    <div class="unir">
+       <div id="Campo">
+            <label class ="Descripcion">Apellido paterno:</label>
+            <input type="text" class="Requisito RequisitoApellido" asp-for="ApellidoPaterno" placeholder="Ingresa tu apellido paterno" />
         </div>
 
+        <div id="Campo">
+            <label class ="Descripcion">Apellido Materno:</label>
+            <input type="text" class="Requisito RequisitoApellido" asp-for="ApellidoMaterno" placeholder="Ingresa tu apellido Materno" />
+        </div>
+    </div>
 
 
 
-        <div class="mb-3">
-            <label class="form-labe">Nombre</label>
-            <input type="text" class="form-control" asp-for="Nombre" placeholder="Ingresa tu Nombre" />
+    <div class="unir">
+        <div id="Campo">
+            <label class ="Descripcion">Telefono:</label>
+            <input type="text" class="Requisito RequisitoGenerico" asp-for="Telefono" placeholder="Ingresa tu numero telefonico" />
         </div>
 
-        <div class="mb-3">
-            <label class="form-labe">Apellido paterno</label>
-            <input type="text" class="form-control" asp-for="ApellidoPaterno" placeholder="Ingresa tu apellido paterno" />
+        <div id="Campo">
+            <label class="Descripcion">Seleccionar especialidad:</label>
+             <select asp-for="ID_Especialidad" asp-items="@(new SelectList(ViewBag.Especialidad, 
+                  "ID_Especialidad", "NombreEspecialidad"))" class="Requisito RequisitoEspecialidad">
+              </select>
         </div>
+    </div>
 
-        <div class="mb-3">
-            <label class="form-labe">Apellido Materno</label>
-            <input type="text" class="form-control" asp-for="ApellidoMaterno" placeholder="Ingresa tu apellido Materno" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-labe">Fecha de nacimiento</label>
-            <input type="date" class="form-control" asp-for="FechaNacimiento" />
-        </div>
-
-        <div class="mb-3">
-            <label class="form-labe">Telefono</label>
-            <input type="text" class="form-control" asp-for="Telefono" placeholder="Ingresa tu numero telefonico" />
-        </div>
-
-        <select asp-for="ID_Especialidad" asp-items="@(new SelectList(ViewBag.Especialidad, 
-               "ID_Especialidad", "NombreEspecialidad"))" class="form-control">
-        </select>
-
-
-        <div class="mb-3">
+        <div id="CampoCentrados">
+            <label class="Descripcion">Subir foto de perfil:</label>
             <input type="file" class="form-control" name="Imagen" />
         </div>
 
-        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
 
-    </div>
+        <button type="submit" id="button">Guardar</button>
 
+
+                    </div>
+                </div>
+
+            </div>
 </form>
+</div>

@@ -6,9 +6,9 @@
 }
 
 <link rel="stylesheet" href="~/css/StListaDeProyectos.css" asp-append-version="true" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.7.6/lottie.min.js"></script>
 
-<h1 id="TituloDeProyectos">Mis proyectos</h1>
+
+<h1 id="TituloDeProyectos">Mis proyectos <i class="fa-solid fa-list-check" id="IconoLista"></i></h1>
 
 <div class="contenedorTodosProductos">
 @if (Model != null && Model.Any())
@@ -25,9 +25,9 @@
 
         <div class="contenedor">
            <div class="CuadroDeContenidoProy">
-               <h4 class="TituloProyecto">@p.TituloProy</h4>
-               <h6 class="centrartxt">Desarrollado en @p.NombreLenguaje </h6>
-               <p class="justificartxt">@p.DescripcionProy</p>
+                    <h4 class="TituloProyecto TitleProy">@p.TituloProy</h4>
+                    <h6 class="centrartxt NomLenguaje">Desarrollado en @p.NombreLenguaje </h6>
+                    <p class="justificartxt DescProy">@p.DescripcionProy</p>
 
                <img src="@p.ImgProy" alt="Imagen del perfil" id="ImagenProyecto"/>
               

@@ -4,36 +4,54 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Crear proyectos</h1>
+<link rel="stylesheet" href="/css/Proyectos.css" asp-append-version="true" />
 
+<div class="CentrarCrearProyectos">
 <form asp-controller="Perfil" asp-action="CrearProyectos" method="post" enctype="multipart/form-data">
-    <div>
+    <div class="ContenedorCrearProyectos">
+
+        <div class="filtro">
+            <div class="CrearProyecto">
+
+                <h1 id="TituloCrearProyecto">Agregar información a Home</h1>
+
+                <div class="centrarItems">
 
 
-        <div class="mb-3">
-            <label class="form-labe">Titulo de proyecto</label>
-            <input type="text" class="form-control" asp-for="TituloProy" placeholder="Ingresa el titulo de proyecto" />
-        </div>
+                    <div id="Campo">
+                            <label class="Descripcion">Titulo de proyecto:</label>
+                            <input type="text" class="Requisito" asp-for="TituloProy" placeholder="Ingresa el titulo" />
+                    </div>
 
-        <div class="mb-3">
-            <label class="form-labe">Titulo descripcion del proyecto</label>
-            <input type="text" class="form-control" asp-for="DescripcionProy" placeholder="Ingresa la descripcion del proyecto" />
-        </div>
+                        <div id="Campo">
+                            <label class="Descripcion">Titulo descripcion del proyecto:</label>
+                            <input type="text" class="Requisito" asp-for="DescripcionProy" placeholder="Ingresa la descripcion" />
+                        </div>
 
-        <div class="mb-3">
-            <label class="form-labe">Link del proyecto</label>
-            <input type="text" class="form-control" asp-for="LinkProy" placeholder="Ingresa la URL del proyecto" />
-        </div>
+                        <div id="Campo">
+                            <label class="Descripcion">Link del proyecto:</label>
+                            <input type="text" class="Requisito" asp-for="LinkProy" placeholder="Ingresa la URL" />
+                        </div>
 
-        <select asp-for="ID_Lenguaje" asp-items="@(new SelectList(ViewBag.Lenguaje,
-               "ID_Lenguaje", "NombreLenguaje"))" class="form-control">
-        </select>
+                        <div id="Campo">
+                            <label class ="Descripcion">Seleccionar un tipo de lenguaje:</label>
+                            <select asp-for="ID_Lenguaje" asp-items="@(new SelectList(ViewBag.Lenguaje,
+                            "ID_Lenguaje", "NombreLenguaje"))" class="Requisito">
+                            </select>
+                        </div>
 
-        <div class="mb-3">
-            <input type="file" class="form-control" name="ImgProyecto" />
-        </div>
+                        <div id="CampoCentrados">
+                            <label class="Descripcion">Subir foto del proyecto:</label>
+                            <input type="file" class="form-control" name="ImgProyecto" accept="image/*" />
+                        </div>
 
-        <button type="submit" id="button">Crear</button>
+                    </div>
 
-    </div>
+                           <button type="submit" id="button">Crear</button>
+
+                    </div>
+                </div>
+
+            </div>
 </form>
+</div>

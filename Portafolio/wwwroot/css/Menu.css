@@ -1,15 +1,20 @@
 ﻿
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
-
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 
 .justificartxt {
     text-align: justify;
 }
 
+.centrartxt {
+    text-align: center;
+}
+
 #ContenedorMenu {
     margin-top: -20px;
 }
+
 
 #tituloPagina {
     font-family: "Pacifico", cursive;

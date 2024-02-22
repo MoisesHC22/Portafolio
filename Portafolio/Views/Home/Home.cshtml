@@ -10,21 +10,18 @@
 
     <div class="container unir">
         <div class="Componente1">
-            <img src="@Model.ImgUsuario" alt="Iamgen de perfil" id="ImgUsuario" />
+            <img src="@Model.ImgUsuario" alt="Imagen de perfil" id="ImgUsuario" />
         </div>
-        <div class="Componente2">
 
-            <h2>@Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h2>
+        <div class="Componente2">
+            <h2 id="NombreCompleto">@Model.Nombre @Model.ApellidoPaterno @Model.ApellidoMaterno</h2>
             <h5>Especialidad en @ViewBag.Especialidad</h5>
             <p>Edad: @ViewBag.Edad años. Teléfono: @Model.Telefono.</p>
-            
             <br />
             <h5>Experiencia en:</h5>
             <img src="/img/Tecnologias.png" id="Tecnologias" />
 
         </div>
-
-
 
     </div>
 
@@ -37,15 +34,67 @@
                  <p>@ViewBag.Descripcion</p>
             </div>
         </div>
-     
+
     }
     else
     {
-        <a asp-action="InformacionHome" asp-controller="Perfil">Agregar informacion a Home</a>
+        if (!string.IsNullOrEmpty(ViewBag.ImgPerfil))
+        {
+            <a asp-action="InformacionHome" asp-controller="Perfil" id="BtnInfHome">
+               <div class="contenedorInfHome">
+                    <h4>Agregar informacion a Home</h4>
+                    <div id="animacion1"></div>
+               </div>
+               
+            </a>
+        }
+        else
+        {
+            <p></p>
+        }
+
+       
+    }
+
+    if (ViewBag.ImgPro != null )
+    {
+        <div class="ContenidoProy">
+            <img src="@ViewBag.ImgPro" alt="Imagen de perfil" id="ImagenProy"/>
+             <h4>@ViewBag.TituloPro</h4>
+              <p>@ViewBag.DescPro</p>
+        </div>
+    }
+    else
+    {
+        if (!string.IsNullOrEmpty(ViewBag.ImgPerfil))
+        {
+            <a asp-action="CrearProyectos" asp-controller="Perfil" id="BtnCrearProy">
+                <div class="contenedorCrearProyecto">
+                    <h4>Agregar un proyecto</h4>
+                </div>            
+            </a>
+        }
+        else
+        {
+        <p></p>
+        }
     }
 }
 else
 {
     <p>Bienvenido</p> 
 }
+
+
+
+<script>
+    lottie.loadAnimation({
+        container: document.getElementById('animacion1'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: '/js/Animaciones/businessman-using-a-laptop.json'
+    });
+
+</script>
 

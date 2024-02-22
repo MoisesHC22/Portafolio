@@ -14,22 +14,34 @@ namespace Portafolio.Controllers
 
         private readonly PortafolioDBContext _dbContext;
         private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IConfiguration _configuration;
 
-        public PerfilController(PortafolioDBContext dbContext, IHttpContextAccessor httpContextAccessor)
+        public PerfilController(PortafolioDBContext dbContext, IHttpContextAccessor httpContextAccessor, IConfiguration configuration)
         {
             _dbContext = dbContext;
             _httpContextAccessor = httpContextAccessor;
+            _configuration = configuration;
         }
 
         public IActionResult InformacionHome()
         {
+            var img = _httpContextAccessor.HttpContext.Session.GetString("imgP");
+
+            if (img != null)
+            {
+                ViewBag.ImgPerfil = img;
+            }
+
             return View();
         }
 
         [HttpPost]
         public async Task<IActionResult> InformacionHome(InfHomeVM infHomeVM)
         {
+            
             var usuario = _httpContextAccessor.HttpContext.Session.GetInt32("Usuario");
+
+            
 
             if (ModelState.IsValid)
             {
@@ -141,10 +153,10 @@ namespace Portafolio.Controllers
 
         public async Task<string> SubirImagenProyecto(Stream archivo, string nombre)
         {
-            string email = "";
-            string clave = "";
-            string ruta = "";
-            string api_key = "";
+            string email = _configuration.GetValue<string>("STORAGE_EMAIL");
+            string clave = _configuration.GetValue<string>("STORAGE_CLAVE");
+            string ruta = _configuration.GetValue<string>("STORAGE_RUTA");
+            string api_key = _configuration.GetValue<string>("STORAGE_APIKEY");
 
             var auth = new FirebaseAuthProvider(new FirebaseConfig(api_key));
             var a = await auth.SignInWithEmailAndPasswordAsync(email, clave);

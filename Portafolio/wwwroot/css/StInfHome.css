@@ -1,0 +1,92 @@
+﻿
+.CentrarInfHome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.ContenedorInfHome {
+    background-image: url(../img/InfHome.jpg);
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.filtro {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 600px;
+    height: 400px;
+    border-radius: 20px;
+}
+
+.InfHome {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    width: 65%;
+    z-index: 5;
+}
+
+
+#TituloInfHome {
+    font-size: 30px;
+    text-align: center;
+    color: white;
+    font-family: "Fira Sans", Helvetica, Arial, sans-serif;
+    margin-bottom: 25px;
+}
+
+.centrarItems {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#Campo {
+    margin-bottom: 10px;
+}
+
+
+.Descripcion {
+    color: white;
+    margin-bottom: 5px;
+}
+
+.Requisito {
+    border-radius: 5px;
+    border: none;
+    padding: 10px 110px;
+}
+
+.Requisito::placeholder {
+    text-align: center;
+}
+
+#button {
+    background-color: rgba(0,0,0,0.2);
+    color: white;
+    border: 0;
+    border-radius: 15px;
+    display: block;
+    margin: 15px auto;
+    padding: 15px 45px;
+    width: 100%;
+    font-size: 13px;
+    font-weight: bold;
+    cursor: pointer;
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: all .3s ease;
+}
+
+    #button:hover {
+        background-color: black;
+        color: white;
+    }
